@@ -1,3 +1,3 @@
-import {Master} from './Master.jsx';
+import Master from './Master.jsx';
 
 export {Master};

@@ -8,12 +8,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        abcd
+      <div className="abc">
+        {this.props.children}
       </div>
       )
   }
 
 }
-
+App.propTypes = {
+  children: React.PropTypes.node
+};
 export default App;

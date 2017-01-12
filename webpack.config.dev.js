@@ -12,7 +12,11 @@ let config = {
   devtool: DEBUG ? 'cheap-module-eval-source-map' : 'hidden-source-map',
   entry: [
     './src/index.jsx',
-    //'./src/assets/scss/_screen.scss'
+    './src/assets/js/jquery.js',
+    './src/assets/js/bootstrap.js',
+    './src/assets/js/clean-blog.js',
+    './src/assets/css/bootstrap.css',
+    './src/assets/css/clean-blog.css'
   ],
   output: {
     path: path.join(__dirname, '/'),
@@ -20,9 +24,9 @@ let config = {
     publicPath: '/'
   },
   plugins: [
-    //new webpack.NoErrorsPlugin(),
-   // new webpack.optimize.OccurenceOrderPlugin(),
-   // new ExtractTextPlugin('style.css', {allChunks: true}),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new ExtractTextPlugin('style.css', {allChunks: true}),
     new HtmlWebpackPlugin({
       template: path.resolve('./node-server/', 'index.html'),
       minify: {
@@ -35,9 +39,10 @@ let config = {
       {
         test: /\.(ico|jpg|jpeg|png|eot|ttf|woff|svg|less)/,
         loader: 'file'
-      },{
-        test: /\.(scss|css)$/,
-        loader: ExtractTextPlugin.extract("style", "css?sourceMap&modules&importLoaders=1&localIdentName=[local]!sass?sourceMap")
+      }, {
+        test: /\.css$/,
+        include: path.join(__dirname, 'src/assets/css'),
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
       {
         test: /\.(js|jsx)$/,
