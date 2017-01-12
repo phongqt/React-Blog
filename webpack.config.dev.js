@@ -20,9 +20,9 @@ let config = {
     publicPath: '/'
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('style.css', {allChunks: true}),
+    //new webpack.NoErrorsPlugin(),
+   // new webpack.optimize.OccurenceOrderPlugin(),
+   // new ExtractTextPlugin('style.css', {allChunks: true}),
     new HtmlWebpackPlugin({
       template: path.resolve('./node-server/', 'index.html'),
       minify: {
