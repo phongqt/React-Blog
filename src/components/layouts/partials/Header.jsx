@@ -1,11 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router';
+import LogoImg from 'assets/img/home-bg.jpg';
 
 class Header extends React.Component {
 
   render() {
     const divStyle = {
-      backgroundImage: 'url(img/home-bg.jpg)'
+      backgroundImage: 'url({LogoImg})'
     };
     return (
       <div>
@@ -38,8 +39,8 @@ class Header extends React.Component {
                   </div>
               </div>
           </nav>
-          <header className="intro-header" style={divStyle}>
-                <div className="container">
+          <header className="intro-header" style={{backgroundImage: `url(${LogoImg})`}}>
+              <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                             <div className="site-heading">
